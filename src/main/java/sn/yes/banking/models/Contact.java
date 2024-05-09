@@ -3,18 +3,17 @@ package sn.yes.banking.models;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Contact {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Contact extends AbstractEntity {
 
     private String firstname;
 

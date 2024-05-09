@@ -1,20 +1,21 @@
 package sn.yes.banking.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Account {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Account extends AbstractEntity {
 
     private String iban;
 
