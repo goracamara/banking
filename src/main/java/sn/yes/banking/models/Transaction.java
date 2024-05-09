@@ -1,8 +1,6 @@
 package sn.yes.banking.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,13 +14,22 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "_transaction")
 public class Transaction {
     @Id
     @GeneratedValue
     private Integer id;
+
     private BigDecimal amount;
+
     private TransactionType type;
+
     private  String destinationIban;
+
     private LocalDate transcationDate;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 
 }

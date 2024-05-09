@@ -1,8 +1,6 @@
 package sn.yes.banking.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +15,11 @@ public class Account {
     @Id
     @GeneratedValue
     private Integer id;
+
     private String iban;
+
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 
 }
